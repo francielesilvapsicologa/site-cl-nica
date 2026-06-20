@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Franciele Silva | Psicóloga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue-dark:   #1B2F5E;
+      --blue-mid:    #2E5FA3;
+      --blue-light:  #7AAFD4;
+      --blue-pale:   #C8DFF0;
+      --blue-bg:     #EEF4FB;
+      --blue-accent: #4A7EC7;
+      --white:       #ffffff;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #4a5568;
+      --brown:       #4a6fa5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; color: var(--text-dark); background: var(--white); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      padding: 16px 40px; display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(27,47,94,0.10);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--blue-mid); font-weight: 700; }
+    .nav-logo span { color: var(--blue-dark); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.95rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue-dark); }
+    .nav-cta {
+      background: var(--blue-mid); color: white; border: none;
+      padding: 10px 22px; border-radius: 50px; cursor: pointer;
+      font-size: 0.9rem; font-family: 'Lato', sans-serif;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; background: var(--blue-bg);
+      display: flex; align-items: center; padding: 100px 40px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,175,212,0.30) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,95,163,0.15) 0%, transparent 70%);
+    }
+    .hero-content {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center; z-index: 1; position: relative; width: 100%;
+    }
+    .hero-tag {
+      display: inline-block; background: var(--blue-pale); color: var(--blue-dark);
+      padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1.6; color: var(--blue-mid); font-weight: 400; margin-bottom: 20px; letter-spacing: 0.01em; }
+    .hero h1 span { color: var(--blue-dark); font-weight: 600; }
+    .hero p { font-size: 1.1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue-mid); color: white; padding: 14px 32px;
+      border-radius: 50px; text-decoration: none; font-weight: 700;
+      transition: background 0.2s, transform 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      border: 2px solid var(--blue-mid); color: var(--blue-mid); padding: 12px 32px;
+      border-radius: 50px; text-decoration: none; font-weight: 700;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--blue-mid); color: white; }
+    .hero-image { display: flex; justify-content: center; align-items: center; }
+    .hero-photo-wrap {
+      width: 380px; height: 460px;
+      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(46,95,163,0.35);
+      animation: morph 8s ease-in-out infinite;
+      border: 5px solid var(--blue-light);
+    }
+    .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    @keyframes morph {
+      0%, 100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+      50%       { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
+    }
+
+    /* SECTION COMMON */
+    section { padding: 90px 40px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; background: var(--blue-pale); color: var(--blue-dark);
+      padding: 5px 16px; border-radius: 50px; font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--blue-dark); margin-bottom: 16px; }
+    .section-subtitle { color: var(--text-mid); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: center; margin-top: 50px; }
+    .about-img-wrap {
+      width: 100%; max-width: 300px;
+      border-radius: 40px 10px 40px 10px;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--blue-light), 0 20px 40px rgba(0,0,0,0.12);
+      aspect-ratio: 3/4;
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .about-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--blue-dark); margin-bottom: 16px; }
+    .about-text p { color: var(--text-mid); line-height: 1.9; margin-bottom: 14px; font-size: 0.98rem; }
+    .about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .badge {
+      background: var(--blue-bg); border: 1px solid var(--blue-pale);
+      color: var(--blue-dark); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem;
+    }
+
+    /* SERVICES */
+    .services { background: var(--blue-bg); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; }
+    .service-card {
+      background: white; border-radius: 20px; padding: 36px 28px;
+      box-shadow: 0 4px 20px rgba(27,47,94,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 4px solid var(--blue-light);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(27,47,94,0.14); }
+    .service-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--blue-dark); margin-bottom: 10px; }
+    .service-card p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; }
+
+    /* SCHEDULING */
+    .scheduling { background: var(--white); }
+    .scheduling-box {
+      background: var(--blue-bg); border-radius: 24px; padding: 50px;
+      border: 1px solid var(--blue-pale); max-width: 700px; margin: 40px auto 0;
+      box-shadow: 0 8px 32px rgba(27,47,94,0.07);
+    }
+    .scheduling-box h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--blue-dark); margin-bottom: 8px; text-align: center; }
+    .scheduling-box > p { color: var(--text-mid); text-align: center; margin-bottom: 32px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; border-radius: 12px;
+      border: 1.5px solid var(--blue-pale); background: white;
+      font-family: 'Lato', sans-serif; font-size: 0.95rem; color: var(--text-dark);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--blue-mid);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%; padding: 14px; background: var(--blue-mid); color: white;
+      border: none; border-radius: 50px; font-size: 1rem; font-weight: 700;
+      font-family: 'Lato', sans-serif; cursor: pointer; margin-top: 8px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .form-submit:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .whatsapp-btn-outline {
+      display: block; text-align: center; padding: 14px 32px;
+      border-radius: 50px; font-weight: 700; font-size: 1rem;
+      font-family: 'Lato', sans-serif; text-decoration: none;
+      border: 2px solid var(--blue-mid); color: var(--blue-mid);
+      background: white; transition: all 0.2s;
+    }
+    .whatsapp-btn-outline:hover { background: var(--blue-mid); color: white; }
+    .whatsapp-btn-solid {
+      display: block; text-align: center; padding: 14px 32px;
+      border-radius: 50px; font-weight: 700; font-size: 1rem;
+      font-family: 'Lato', sans-serif; text-decoration: none;
+      background: var(--blue-mid); color: white; transition: all 0.2s;
+    }
+    .whatsapp-btn-solid:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .success-msg {
+      display: none; background: #d0e8ff; color: var(--blue-dark); border-radius: 12px;
+      padding: 14px; text-align: center; font-weight: 700; margin-top: 16px;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--blue-dark); color: white; }
+    .contact .section-title { color: white; }
+    .contact .section-subtitle { color: var(--blue-pale); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 50px; align-items: center; }
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item { display: flex; align-items: center; gap: 16px; transition: opacity 0.2s, transform 0.2s; cursor: pointer; }
+    .contact-item:hover { opacity: 0.8; transform: translateX(4px); }
+    .contact-icon {
+      width: 48px; height: 48px; background: rgba(255,255,255,0.12);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .contact-item p { color: var(--blue-pale); font-size: 0.9rem; }
+    .contact-item strong { color: white; display: block; }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white; padding: 16px 32px;
+      border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    }
+    .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+    .instagram-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white; padding: 14px 28px;
+      border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(220,39,67,0.35);
+    }
+    .instagram-btn:hover { transform: translateY(-3px); }
+    .contact-right { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+    .contact-right p { color: var(--blue-pale); line-height: 1.8; }
+
+    /* DIVIDER WAVE */
+    .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; }
+
+    /* FOOTER */
+    footer {
+      background: #0f1c3a; color: #7AAFD4; text-align: center;
+      padding: 28px 40px; font-size: 0.88rem;
+    }
+    footer span { color: var(--blue-light); font-weight: 700; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-content, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .scheduling-box { padding: 30px 20px; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+      section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVEGAÇÃO -->
+<nav>
+  <div class="nav-logo">Franciele <span>Silva</span></div>
+
+  <button class="nav-cta" onclick="document.getElementById('agendamento').scrollIntoView({behavior:'smooth'})">Agendar Consulta</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">PSICÓLOGA CLÍNICA - CRP 06/235118</div>
+      <h1><span>Compreender</span> os padrões que sustentam seu <span>sofrimento</span> pode ser o primeiro passo para <span>construir</span> novas formas de <span>viver</span>.</h1>
+      <p>Psicoterapia baseada em Terapia Cognitivo-Comportamental.</p>
+      <div class="hero-btns">
+        <a href="#agendamento" class="btn-primary">Agendar Consulta</a>
+        <a href="#sobre" class="btn-secondary">Saiba Mais ↓</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-photo-wrap">
+        <img src="franciele.png" alt="Franciele Silva - Psicóloga" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about" id="sobre">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="franciele.png" alt="Franciele Silva - Psicóloga" />
+      </div>
+      <div class="about-text">
+        <div class="section-tag">Sobre mim</div>
+        <h3>Psicóloga</h3>
+        <p>Sou Franciele Silva, psicóloga clínica (CRP 06/235118) com formação em Terapia Cognitivo-Comportamental e especialista em Psicopatologia.</p>
+        <p>Acredito que quando nos conhecemos, ganhamos clareza sobre quem somos e o que precisamos mudar. O autoconhecimento é o ponto de partida para decisões mais conscientes e alinhadas aos nossos valores. Meu objetivo é caminhar ao seu lado oferecendo uma escuta ativa, estratégias e um espaço seguro para você compartilhar suas questões, sejam elas pessoais ou profissionais — conte comigo.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services" id="servicos">
+  <div class="section-inner">
+    <div class="section-tag">ÁREAS DE ATUAÇÃO</div>
+    <h2 class="section-title">Especialidades</h2>
+    <p class="section-subtitle">Psicoterapia online individual, com intervenções baseadas em evidências e fundamentadas na Terapia Cognitivo-Comportamental (TCC).</p>
+    <p class="section-subtitle" style="margin-top:16px;">Meu trabalho é ajudar você a compreender e lidar com dificuldades emocionais, cognitivas e comportamentais que podem impactar diferentes áreas da sua vida — como relacionamentos, trabalho, autoestima e qualidade de vida.</p>
+    <p class="section-subtitle" style="margin-top:16px; font-weight:700; color: var(--blue-dark);">Algumas das principais demandas que acompanho são:</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>TDAH</h3>
+        <p>Dificuldades relacionadas à atenção, organização, impulsividade e manejo da rotina, que podem impactar estudos, trabalho e relações.</p>
+      </div>
+      <div class="service-card">
+        <h3>Ansiedade</h3>
+        <p>Quando preocupações, medos ou pensamentos acelerados se tornam intensos e começam a interferir no bem-estar e no dia a dia.</p>
+      </div>
+      <div class="service-card">
+        <h3>TEPT (Transtorno de Estresse Pós-Traumático)</h3>
+        <p>Quando experiências difíceis ou traumáticas continuam gerando sofrimento, medo, hipervigilância ou lembranças invasivas.</p>
+      </div>
+      <div class="service-card">
+        <h3>Depressão</h3>
+        <p>Sentimentos persistentes de tristeza, desânimo, vazio ou perda de interesse, que podem afetar energia, motivação e funcionamento diário.</p>
+      </div>
+      <div class="service-card">
+        <h3>Luto</h3>
+        <p>Acompanhamento no processo de elaboração de perdas importantes, respeitando o tempo e a singularidade de cada experiência.</p>
+      </div>
+      <div class="service-card">
+        <h3>Autoconhecimento</h3>
+        <p>Um espaço para compreender padrões de pensamento, emoções e comportamentos, favorecendo escolhas mais conscientes e alinhadas com quem você deseja ser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDAMENTO -->
+<section class="scheduling" id="agendamento">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <div class="section-tag" style="font-size:1rem; padding: 8px 22px;">Marque sua sessão</div>
+    </div>
+    <div class="scheduling-box">
+      <h3>Agendamento via WhatsApp</h3>
+      <p>Clique abaixo e fale diretamente comigo para marcar sua sessão ou tirar dúvidas.</p>
+      <div style="display:flex; flex-direction:column; gap:16px; margin-top:32px;">
+        <a href="https://wa.me/5519996831664?text=Ol%C3%A1%20Franciele!%20Tenho%20algumas%20d%C3%BAvidas%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento." target="_blank" class="whatsapp-btn-outline">Tire suas dúvidas aqui</a>
+        <a href="https://wa.me/5519996831664?text=Ol%C3%A1%20Franciele!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="whatsapp-btn-solid">Clique aqui para agendar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact" id="contato">
+  <div class="section-inner">
+    <div class="section-tag" style="background:rgba(255,255,255,0.12);color:var(--blue-pale);">Me encontre também</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <a href="https://wa.me/5519996831664" target="_blank" class="contact-item" style="text-decoration:none;">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>WhatsApp / Telefone</strong>
+            <p>(19) 99683-1664</p>
+          </div>
+        </a>
+        <a href="mailto:francielesilvadesenvolvendo@gmail.com" class="contact-item" style="text-decoration:none;">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>E-mail</strong>
+            <p>francielesilvadesenvolvendo@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/francielesilva_oficial" target="_blank" class="contact-item" style="text-decoration:none;">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>Instagram</strong>
+            <p>@francielesilva_oficial</p>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@francielesilvapsicologia" target="_blank" class="contact-item" style="text-decoration:none;">
+          <div class="contact-icon">🎥</div>
+          <div>
+            <strong>YouTube</strong>
+            <p>@francielesilvapsicologia</p>
+          </div>
+        </a>
+      </div>
+      <div class="contact-right"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Franciele Silva</span> | Psicóloga | CRP 06/235118 | Todos os direitos reservados</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('successMsg').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 5000);
+  }
+</script>
+
+</body>
+</html>
