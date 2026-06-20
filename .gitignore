@@ -1,0 +1,17 @@
+# Sistema operacional
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Arquivos de build e dependências
+node_modules/
+bower_components/
+
+# Git
+.git/
